@@ -1,713 +1,303 @@
 <!DOCTYPE html>
 <html lang="en">
-    <style>
-.zoom {
-
-  padding: 50px;
-  background-color: green;
-  transition: transform .2s; /* Animation */
-  width: 200px;
-  height: 200px;
-  margin: 0 auto;
-    
-    
-}
-
-.zoom:hover {
-          position: relative;
-  z-index: 500;
-  transform: scale(2.15); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
-}
-</style>
-
-
   <head>
-    <title>Pavlos Aslanis MSc</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>TESTING</title>
 
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css">
+    <link rel="stylesheet" href="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css">
+    <link rel="stylesheet" href="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css">
+    <link rel="stylesheet" href="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/L.Control.Locate.css">
+    <link rel="stylesheet" href="assets/leaflet-groupedlayercontrol/leaflet.groupedlayercontrol.css">
+    <link rel="stylesheet" href="assets/css/app.css">
 
-
-    <link rel="stylesheet" href="css/animate.css">
-    
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-    
-    <link rel="stylesheet" href="css/flaticon.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/favicon-76.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/img/favicon-120.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/img/favicon-152.png">
+    <link rel="icon" sizes="196x196" href="assets/img/favicon-196.png">
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+      
+     <!-- Labels -->
+    <script src="../src/Label.js"></script>
+	<script src="../src/BaseMarkerMethods.js"></script>
+	<script src="../src/Marker.Label.js"></script>
+	<script src="../src/CircleMarker.Label.js"></script>
+	<script src="../src/Path.Label.js"></script>
+	<script src="../src/Map.Label.js"></script>
+	<script src="../src/FeatureGroup.Label.js"></script>
+      
+      
   </head>
-  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-	  
-	  
-    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
-	    <div class="container">
-	      <a class="navbar-brand" href="index.html">Pavlos Aslanis<span>.</span></a>
-	      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-	        <span class="oi oi-menu"></span> Menu
-	      </button>
 
-	      <div class="collapse navbar-collapse" id="ftco-nav">
-	        <ul class="navbar-nav nav ml-auto">
-	          <li class="nav-item"><a href="#home-section" class="nav-link"><span>Home</span></a></li>
-	          <li class="nav-item"><a href="#about-section" class="nav-link"><span>About</span></a></li>
-	          <li class="nav-item"><a href="#chapter-section" class="nav-link"><span>My Projects</span></a></li>
-
-	          <li class="nav-item"><a href="#projects-section" class="nav-link"><span>My Maps</span></a></li>
-                <li class="nav-item"><a href="#agri-section" class="nav-link"><span>Photos</span></a></li>
-	          <li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contact</span></a></li>
-	        </ul>
-	      </div>
-	    </div>
-	  </nav>
-
-	  <section class="hero-wrap js-fullheight">
-      <div class="overlay"></div>
-      <div class="container-fluid px-0">
-      	<div class="row d-md-flex no-gutters slider-text align-items-center js-fullheight justify-content-end">
-	      	<img class="one-third align-self-end order-md-last img-fluid" src="images/earthtmyn.png" alt="">
-	        <div class="one-forth d-flex align-items-center ftco-animate js-fullheight">
-	        	<div class="text mt-5">
-	        		<span class="subheading">Geographer</span>
-		  				<h1>Pavlos Aslanis</h1>
-		  				<p>MSc in Geomatics, BSc in Geography. Expertise in GIS and Remote Sensing analysis for environmental modelling.</p>
-	          </div>
-	        </div>
-	    	</div>
-      </div>
-    </section>
-
-
-    <section class="ftco-about img ftco-section" id="about-section">
-    	<div class="container">
-    		<div class="row d-flex no-gutters">
-    			<div class="col-md-6 col-lg-6 d-flex">
-    				<div class="img-about img d-flex align-items-stretch">
-    					<div class="overlay"></div>
-	    				<div class="img d-flex align-self-stretch align-items-center" style="background-image:url(images/bg_1.jpg);">
-	    				</div>
-    				</div>
-    			</div>
-    			<div class="col-md-6 col-lg-6 pl-md-5">
-    				<div class="row justify-content-start pb-3">
-		          <div class="col-md-12 heading-section ftco-animate">
-		            <h2 class="mb-4">About Me</h2>
-		            <p> Born in Athens, Greece on 11/06/1993.</p>
-		            <div class="text-about">
-		            	<h4>Education</h4>
-			            <p>BSc in Geography - Harokopion University of Athens, Greece (2018) <br> MSc in Geomatics - Lund University, Sweden (2020).</p>
-                        <br>
-			            <h4>Fields of Science</h4>
-			            <p> GIS, Remote Sensing, Spatial Analysis, Programming, Database Management, Web-Development.</p>
-                        <br>
-			            <h4><br></h4>
-			      </div>
-		          </div>
-		        </div>
-	        </div>
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <div class="navbar-icon-container">
+            <a href="#" class="navbar-icon pull-right visible-xs" id="nav-btn"><i class="fa fa-bars fa-lg white"></i></a>
+            <a href="#" class="navbar-icon pull-right visible-xs" id="sidebar-toggle-btn"><i class="fa fa-search fa-lg white"></i></a>
+          </div>
+          <a class="navbar-brand" href="#">TEST  AB</a>
         </div>
-    	</div>
-    </section>
-     
-    <section class="ftco-section ftco-no-pt ftco-no-pb ftco-counter img" id="section-counter">
-    	<div class="container">
-            				<div class="row d-md-flex align-items-center align-items-stretch">
-                              <div class="col-md-12 heading-section text-center ftco-animate">
-            <div class="text-about">
-                                  <h4><b>Technical Expertise </b></h4>
-                <br>
-                                  </div>
-          </div>
-                            
-          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-            <div class="block-18 bg-light">
-              <div class="text">
-                <strong class="text" >Programming</strong>
-                <span><br>Python, R, MATLAB</span>
+        <div class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right" role="search">
+            <div class="form-group has-feedback">
+                <input id="searchbox" type="text" placeholder="Search" class="form-control">
+                <span id="searchicon" class="fa fa-search form-control-feedback"></span>
+            </div>
+          </form>
+          <ul class="nav navbar-nav">
+            <li><a href="#" data-toggle="collapse" data-target=".navbar-collapse.in" id="about-btn"><i class="fa fa-question-circle white"></i>&nbsp;&nbsp;About</a></li>
+            <li class="dropdown">
+              <a id="toolsDrop" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-globe white"></i>&nbsp;&nbsp;Tools <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#" data-toggle="collapse" data-target=".navbar-collapse.in" id="full-extent-btn"><i class="fa fa-arrows-alt"></i>&nbsp;&nbsp;Zoom To Full Extent</a></li>
+<!--
+                <li><a href="#" data-toggle="collapse" data-target=".navbar-collapse.in" id="legend-btn"><i class="fa fa-picture-o"></i>&nbsp;&nbsp;Show Legend</a></li>
+                <li class="divider hidden-xs"></li>
+                <li><a href="#" data-toggle="collapse" data-target=".navbar-collapse.in" id="login-btn"><i class="fa fa-user"></i>&nbsp;&nbsp;Login</a></li>
+-->
+              </ul>
+            </li>
+<!--
+            <li class="dropdown">
+                <a class="dropdown-toggle" id="downloadDrop" href="#" role="button" data-toggle="dropdown"><i class="fa fa-cloud-download white"></i>&nbsp;&nbsp;Download <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="data/boroughs.geojson" download="boroughs.geojson" target="_blank" data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-download"></i>&nbsp;&nbsp;Boroughs</a></li>
+                  <li><a href="data/subways.geojson" download="subways.geojson" target="_blank" data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-download"></i>&nbsp;&nbsp;Subway Lines</a></li>
+                  <li><a href="data/DOITT_THEATER_01_13SEPT2010.geojson" download="theaters.geojson" target="_blank" data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-download"></i>&nbsp;&nbsp;Theaters</a></li>
+                  <li><a href="data/DOITT_MUSEUM_01_13SEPT2010.geojson" download="museums.geojson" target="_blank" data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-download"></i>&nbsp;&nbsp;Museums</a></li>
+                </ul>
+            </li>
+-->
+            <li class="hidden-xs"><a href="#" data-toggle="collapse" data-target=".navbar-collapse.in" id="list-btn"><i class="fa fa-list white"></i>&nbsp;&nbsp;POI List</a></li>
+          </ul>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </div>
+
+    <div id="container">
+      <div id="sidebar">
+        <div class="sidebar-wrapper">
+          <div class="panel panel-default" id="features">
+            <div class="panel-heading">
+              <h3 class="panel-title">Points of Interest
+              <button type="button" class="btn btn-xs btn-default pull-right" id="sidebar-hide-btn"><i class="fa fa-chevron-left"></i></button></h3>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-xs-8 col-md-8">
+                  <input type="text" class="form-control search" placeholder="Filter" />
+                </div>
+                <div class="col-xs-4 col-md-4">
+                  <button type="button" class="btn btn-primary pull-right sort" data-sort="feature-name" id="sort-btn"><i class="fa fa-sort"></i>&nbsp;&nbsp;Sort</button>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-            <div class="block-18 bg-light">
-              <div class="text">
-                <strong class="text" >Remote Sensing</strong>
-                <span><br>ENVI, SNAP, Google Earth Engine</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-            <div class="block-18 bg-light">
-              <div class="text">
-                <strong class="text" >GIS</strong>
-                <span><br>ArcGIS, QGIS, SAGA GIS, IDRISI</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-            <div class="block-18 bg-light">
-              <div class="text">
-                <strong class="text" >Databases Management & Web Development</strong>
-                 
-                <span> <br>SQL, PostGIS, HTML, CSS, JavaScript</span>
-              </div>
+            <div class="sidebar-table">
+              <table class="table table-hover" id="feature-list">
+                <thead class="hidden">
+                  <tr>
+                    <th>Icon</th>
+                  <tr>
+                  <tr>
+                    <th>Name</th>
+                  <tr>
+                  <tr>
+                    <th>Chevron</th>
+                  <tr>
+                </thead>
+                <tbody class="list"></tbody>
+              </table>
             </div>
           </div>
         </div>
       </div>
-    </section>
-
-    <section class="ftco-section ftco-no-pt">
-    	<div class="container">
-<br><br>
-    		<div class="row">
-
-
-					<div class="col-md-12 text-center d-flex ftco-animate">
-						<div class="services-1 bg-light">
-							<span class="icon">
-								<i class="flaticon-innovation"></i>
-							</span>
-							<div class="desc">
-								<h3 class="mb-5">Research Interest</h3>
-								<p>My main research interest is to develop and refine existing satellite remote sensing methods for environmental modelling. More specifically, my current research interest is the use of different satellite sensor data (e.g. Sentinel-2, Landsat, MODIS) for detecting and mapping natural and human-induced changes based on time series information in order to assess the impacts of climate change and urbanization on ecosystems.</p>
-							</div>
-						</div>
-					</div>
-				</div>
-    	</div>
-    </section>
-    <section class="ftco-section ftco-no-pb ftco-no-pt" id="chapter-section">
-    	<div class="container">
-    		<div class="row justify-content-center py-5 mt-5">
-          <div class="col-md-12 heading-section text-center ftco-animate">
-            <h2 class="mb-4">My Projects</h2>
-          </div>
+      <div id="map"></div>
+    </div>
+    <div id="loading">
+      <div class="loading-indicator">
+        <div class="progress progress-striped active">
+          <div class="progress-bar progress-bar-info progress-bar-full"></div>
         </div>
-    		<div class="row">
-    			<div class="col-md-3 mb-4">
-				    <nav id="navi">
-					    <ul>
-					      <li><a href="#page-1">Crop Phenology</a></li>
-					      <li><a href="#page-2">Soil Erosion</a></li>
-					      <li><a href="#page-3">European Phenology</a></li>
-					      <li><a href="#page-4">ML Classification</a></li>
-					      <li><a href="#page-5">Accessibility Analysis</a></li>
-					      <li><a href="#page-6">Custom Arcpy Toolbox</a></li>
-					      <li><a href="#page-7">Nutrient Leaching</a></li>
-					      <li><a href="#page-8">Site Suitability Analysis</a></li>
-                            <li><a href="#page-9">Road Maintenance</a></li>
-                            <li><a href="#page-10">Web-GIS</a></li>
-                            <li><a href="#page-11">GEE Classification</a></li>
-                            <li><a href="#page-12">Augmented Reality</a></li>
-                            
-                            
-                          
-					    </ul>
-					  </nav>
-					</div>
-					<div class="col-md-9">
-					  <div id="page-1" class= "page bg-light one">
-					  	<h2 class="heading"> <b>MSc Thesis </b> <br> Sentinel-2 Time-Series Analysis for Spring Barley Crop Growth Stage Detection</h2>
-					  	<p>Monitoring crop growth is crucial for applying agronomic practices efficiently. 
-						This study focus on spring barley parcels with available in-situ crop growth stage measurements 
-						(recorded in Zadoks scale) in south-central Sweden over the period of 2017 – 2019. The aim was to 
-						detect three specific crop growth stages of spring barley that are crucial for applying external inputs 
-						(e.g. fungicides applications): (i) first node detectable (31DC), (ii) flag leaf ligule just visible (39DC),
-						and (iii) first spikelet of inflorescence just visible (51DC). We describe a simple empirical approach based on
-						Normalized Difference Vegetation Index (NDVI) and Enhanced Vegetation Index 2 (EVI2) Sentinel-2 time-series. 
-						TIMESAT 4.0 was deployed to reconstruct the NDVI and EVI2 trajectories using the Double Logistic (DL) smoothing 
-						function. The available in-situ crop growth stage measurements were used to optimize the dynamic thresholds 
-						(% of the amplitude of the season) for detecting the different crop growth stages of interest in the time-series 
-						of the vegetation indices. The optimal thresholds for the stages 31DC, 39DC and 51DC based on NDVI were 74%, 92%,
-						and 99% respectively; for EVI2 the optimal global thresholds were 70% (31DC), 91% (39DC), and 99% (51DC). 
-						The results suggest that EVI2 was more accurate than NDVI for detecting the crop growth stages of interest 
-						in terms of R2 and RMSE. Overall,  the study showed the feasibility of using Sentinel-2 in crop phenology 
-						studies and demonstrated its potential uses and inaccuracies regarding the detection of three specific crop
-						growth stages of spring barley that are important in agronomic management.</p><br>
-                          <img src="images/fields.jpg" alt="DayOfYear crop growth stages" style="max-width:100%;">
-					  </div>
-					  <div id="page-2" class= "page bg-light two">
-					  	<h2 class="heading"> <b>BSc Thesis </b> <br> Mapping Soil Erosion Susceptibility using RULSE and GIS - An Empirical Assesment of Xerias River Basin, Greece </h2>
-					  	<p> In this thesis, an effort to predict mean annual soil loss has been conducted
-						for the watershed of Xerias (Peloponnese). For the prediction, the Revised Universal
-						Soil Loss Equation (RUSLE) model, a modification of the USLE model, has been
-						adopted in a Geographical Information System framework. The RUSLE factors were
-						calculated (in the form of raster layers) for the area of interest. The R-factor was
-						calculated from monthly and annual precipitation data. The K-factor was estimated
-						using soil maps available from the Soil Geographical Data Base of Europe (SGDBE) in
-						conjunction with the LUCAS database. The LS-factor was calculated from a 30m
-						digital elevation model (ASTER DEM). The C-factor was calculated using the Corine
-						2000 database. The P-factor in absence of data was set to 1. The results showed that
-						in more than 85% of the study area the mean annual soil loss amounts were less
-						than 6.8 t ha−1yr−1 while the mean annual soil loss is predicted up to 3.52
-						t ha−1yr−1
-						. For the reliability assessment of the results, a comparison has been
-						made between the results of this thesis with the results of the European Commission
-						researches. This comparison showed that the classes of soil loss estimations in 85.6%
-						of the study area fell within the range of soil loss classes obtained from European
-						Commission researches. In general, it can be said that the reliability of the used data
-						and used methods is too low and too many uncertainties exist for a reliable
-						calculation of soil loss amounts in the watershed of Xerias using the RUSLE model.
-						Nonetheless, the results of this thesis could be proven useful for the identification of
-						the spatial patterns of soil erosion, which can make these methods highly useful, since
-						such information is critical for erosion control and thus for the protection of the
-						environment.</p><br>
-                          <img src="images/ero1.png" alt="DayOfYear crop growth stages" style="max-width:100%;">
-					  </div>
-					  <div id="page-3" class= "page bg-light three">
-					  	<h2 class="heading">Time Series Analysis for European Phenology</h2>
-					  	<p>This projected focused on retrieving the phenology parameters at 8-day time steps between 1999 and 2017 covering the south-west part of Europe by utilising optical remote sensing techniques and more specifically by using the vegetation index named Plant Phenology Index (PPI) generated with MODIS data. With the utilization of remote sensing techniques, this projects reveals the phenology parameters like start of the season (SOS), end of the season (EOS), and length of season (LOS) over most parts of south-east part of Europe.</p><br>
-                           <img src="images/2.png" alt="DayOfYear crop growth stages" style="max-width:100%;">
-					  </div>
-					  
-					  <div id="page-4" class= "page bg-light four">
-					    <h2 class="heading">Machine Learning and Land Cover Classification</h2>
-					    <p>
-  This project aimed to create a thematic map (land cover) for Lund municipality by using satellite data (Sentinel-2A) along with in situ measurements. Two classification methods are used in order to classify the land cover types in Lund municipality, named ANN and minimum distance. The highest classification accuracy was obtained by ANN which is 54% compared to minimum distance classifier. It was concluded that using ANN method is a better option than minimum distance with respect to accuracy. Furthermore, it is found that Minimum distance classifier is a simpler method and less time consuming but should not be preferred for applications where the accuracy of the classification is critical.
-</p><br>
-                                                     <img src="images/lundc.png" alt="DayOfYear crop growth stages" style="max-width:100%;">
-					  </div>
-					  <div id="page-5" class= "page bg-light five">
-					    <h2 class="heading">Accesibility Analysis based on Network Analysis</h2>
-					    <p>The concept of accessibility plays an important role in many of our conscious choices: How far are you willing to walk to buy a lunch? How much time are you willing to spend to commute to a new working place? The accessibility has been modelled here in the form of travel time to hospitals and markets by using a raster-based cost distance analysis as opposed to a vector-based network analysis. Results with a reasonable accuracy were obtained from the service area analysis. There were certain areas that were modelled poorly due to big gaps in between roads in rural areas or areas with an incomplete road network. Also, areas in mountainous areas with steep slopes were modelled differently.</p><br>
-                                                     <img src="images/ngea12.png" alt="DayOfYear crop growth stages" style="max-width:100%;">
-					  
-					  </div>
-					  <div id="page-6" class= "page bg-light six">
-					    <h2 class="heading">Arcpy Toolbox for Multitemporal Analyis of a River's Sinuosity Index</h2>
-					    <p> Here is a Python/ArcGIS-ArcToolbox to automate the multi-temporal calculation of a river’s sinuosity index.  The sinuosity index  is also known as just sinuosity and describes the tendency of the rivers to meander (i.e. to deviate from the straight flow), and it is defined as the total length of the river (L) divided by the straight distance (D) between the starting and ending point of the river. The utilization of arcpy package can be proven time efficient when it comes to the automation of tasks with a time demanding workflow. In such a case, the developed toolbox can be used to assess the temporal changes in the sinuosity values of a river in an automated manner, but the results should always interpreted with critical thinking.</p><br>
-                            <img src="images/ngen13.JPG" alt="DayOfYear crop growth stages" style="max-width:100%;">  
-					  </div>
-					  <div id="page-7" class= "page bg-light seven">
-					    <h2 class="heading">Nutrient Leaching in Rönne å river</h2>
-					    <p>Nutrient leaching has many adverse effects to the environment such as the acceleration of the eutrophication process. This project demonstrates the use of spatial
-data in a GIS in order to provide solutions to environmental problems in a time saving way.
-The effects of factors such as land use and point sources on nutrient
-leaching in the Rönne å drainage basin are examined and the results are compared with available field measurements. Additionally, the report assess the financial cost of constructing protective zones coupled with its distribution among municipalities.
-                            <img src="images/stream.JPG" alt="DayOfYear crop growth stages" style="max-width:100%;"> 
-</p>
-					  </div>
-					  <div id="page-8" class= "page bg-light eight">
-					    <h2 class="heading">Site Suitability Analysis for Wind Power Farm</h2>
-					    <p>This projected aimed to identify the most suitable location for the construction of wind power plant for the area of South-West Scania (parts of Lund and Eslöv municipalities). The criteria that were taken into account during the suitability analysis were suggested by the aforementioned municipalities. Such criteria are the distance from built up area, houses and roads in addition to the potential wind energy (related with the landscape) and the land uses in the study area. The most suitable site is located in the northeast part of the study area, with an area of 6.25 Ha and mean PWI of 8.50.</p>
-                          <br>
-                          <img src="images/wind.JPG" alt="DayOfYear crop growth stages" style="max-width:100% ;"> 
-</p>
-					  </div>
-                        
+      </div>
+    </div>
 
-                					  <div id="page-9" class= "page bg-light one">
-                                          <h2 class="heading">Maintaining Road Infrastructure for Agricultural Development  <br></h2>
-                        <p>A cost approximation for road maintenance in Iran and more specifically in Gilan, a rice producing province, has been performed and evaluated. The high maintenance costs for roads in Gilan can be explained by the distribution of cost factors within the province: 1) Extensive agriculture and high population density lead to intensive road use  2) The high precipitation in Gilan damages the road infrastructure 3) Prevalent Gleysols that are prone to subsidence.   </p><br>
-                          <img src="images/road.png" alt="DayOfYear crop growth stages" style="max-width:100%;">
-					  </div>
-                                        					  <div id="page-10" class= "page bg-light eight">
-					    <h2 class="heading">Temperature Web Map Service</h2>
-					    <p>This project focused on creating a web map service that allows users to evaluate climate variables
-and relevant features in Sweden. Additionally, it will allow users to compare these parameters
-against satellite imagery. The service aims to present the spatial information in a
-cartographically meaningful way that should be intuitive to use.</p> <br>
-                                                  <img src="images/web.JPG" alt="DayOfYear crop growth stages" style="max-width:100% ;"> 
-					  </div>
-                                        <div id="page-11" class= "page bg-light eight">
-					    <h2 class="heading">Land Cover Classification with Google Earth Engine and Landsat 8</h2>
-					    <p>Google Earth Engline provides a simple, quick, and powerful platform for handling remotely sendsed data using JavaScript. Here is the demonstration of Classification And Regression Trees (CART) classifier as a supervised learning that uses a training sample to classify Landsat 8 images into land cover classes for Uppsala, Sweden. </p> <br>
-                                                  <img src="images/gee.PNG" alt="DayOfYear crop growth stages" style="max-width:100% ;"> 
-					  </div>
-                
-                        <div id="page-12" class= "page bg-light eight">
-					    <h2 class="heading">Augmented Reality 3D Mapping</h2>
-					    <p>This project is about creating a 3D Augmented Reality android application. This application was created in Unity where the scripts were written in C#. This project aimed to demonstrate the use of augmented reality combined with spatial data and some of its possible uses in data visualisation. </p> <br>
-                                                  <img src="images/ar1.JPG" alt="DayOfYear crop growth stages" style="max-width:100% ;"> 
-					  </div>
-					</div>
-			  </div>
+    <div class="modal fade" id="aboutModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button class="close" type="button" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">Welcome to !</h4>
+          </div>
+          <div class="modal-body">
+            <ul class="nav nav-tabs nav-justified" id="aboutTabs">
+              <li class="active"><a href="#about" data-toggle="tab"><i class="fa fa-question-circle"></i>&nbsp;About the project</a></li>
+              <li><a href="#contact" data-toggle="tab"><i class="fa fa-envelope"></i>&nbsp;Bug Report</a></li>
+              <li><a href="#disclaimer" data-toggle="tab"><i class="fa fa-exclamation-circle"></i>&nbsp;Disclaimer</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-globe"></i>&nbsp;Metadata <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#boroughs-tab" data-toggle="tab">Boroughs</a></li>
+                  <li><a href="#subway-lines-tab" data-toggle="tab">Subway Lines</a></li>
+                  <li><a href="#theaters-tab" data-toggle="tab">Theaters</a></li>
+                  <li><a href="#museums-tab" data-toggle="tab">Museums</a></li>
+                </ul>
+              </li>
+            </ul>
+            <div class="tab-content" id="aboutTabsContent">
+
+              <div id="disclaimer" class="tab-pane fade text-danger">
+                <p>The data provided on this site is for informational and planning purposes only.</p>
+                <p>Absolutely no accuracy or completeness guarantee is implied or intended. All information on this map is subject to such variations and corrections as might result from a complete title search and/or accurate field survey.</p>
+              </div>
+              <div class="tab-pane fade" id="contact">
+                <form id="contact-form">
+                  <div class="well well-sm">
+                    <div class="row">
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="first-name">First Name:</label>
+                          <input type="text" class="form-control" id="first-name">
+                        </div>
+                        <div class="form-group">
+                          <label for="last-name">Last Name:</label>
+                          <input type="text" class="form-control" id="last-email">
+                        </div>
+                        <div class="form-group">
+                          <label for="email">Email:</label>
+                          <input type="text" class="form-control" id="email">
+                        </div>
+                      </div>
+                      <div class="col-md-8">
+                        <label for="message">Report Problem:</label>
+                        <textarea class="form-control" rows="8" id="message"></textarea>
+                      </div>
+                      <div class="col-md-12">
+                        <p>
+                          <button type="submit" class="btn btn-primary pull-right" data-dismiss="modal">Submit</button>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="tab-pane fade" id="boroughs-tab">
+                <p>Borough data courtesy of <a href="http://www.nyc.gov/html/dcp/pdf/bytes/nybbwi_metadata.pdf" target="_blank">New York City Department of City Planning</a></p>
+              </div>
+              <div class="tab-pane fade" id="subway-lines-tab">
+                <p><a href="http://spatialityblog.com/2010/07/08/mta-gis-data-update/#datalinks" target="_blank">MTA Subway data</a> courtesy of the <a href="http://www.urbanresearch.org/about/cur-components/cuny-mapping-service" target="_blank">CUNY Mapping Service at the Center for Urban Research</a></p>
+              </div>
+              <div class="tab-pane fade" id="theaters-tab">
+                <p>Theater data courtesy of <a href="https://data.cityofnewyork.us/Recreation/Theaters/kdu2-865w" target="_blank">NYC Department of Information & Telecommunications (DoITT)</a></p>
+              </div>
+              <div class="tab-pane fade" id="museums-tab">
+                <p>Museum data courtesy of <a href="https://data.cityofnewyork.us/Recreation/Museums-and-Galleries/sat5-adpb" target="_blank">NYC Department of Information & Telecommunications (DoITT)</a></p>
+              </div>
             </div>
-        </div>
-    	</div>
-    </section>
-
-
- 
-
-    <section class="ftco-section ftco-project" id="projects-section">
-    	<div class="container">
-    		<div class="row no-gutters justify-content-center pb-5">
-          <div class="col-md-12 heading-section text-center ftco-animate">
-          	<span class="subheading">Maps</span>
-            <h2 class="mb-4">My Maps</h2>
           </div>
-        </div>
-    		<div class="row">
-                                <div class="col-md-4">
-    				<div class=" zoom project img  d-flex justify-content-center align-items-end" style="background-image: url(images/1.jpg);background-size: contain;">
-
-    				</div>
-    			</div>                <div class="col-md-4">
-    				<div class=" zoom project img  d-flex justify-content-center align-items-end" style="background-image: url(images/2th.jpg);background-size: contain;">
-
-    				</div>
-    			</div>
-                <div class="col-md-4">
-    				<div class=" zoom project img  d-flex justify-content-center align-items-end" style="background-image: url(images/se.png);background-size: contain;">
-
-    				</div>
-    			</div>
-                
-    			<div class="col-md-4">
-    				<div class=" zoom project img  d-flex justify-content-center align-items-end" style="background-image: url(images/luf.JPG); background-size: contain;">
-
-    				</div>
-  				</div>
-  				<div class="col-md-4">
-    				<div class=" zoom project img  d-flex justify-content-center align-items-end" style="background-image: url(images/ts_area.JPG);background-size: contain;">
-
-    				</div>
-  				</div>
-
-    			<div class="col-md-4">
-    				<div class=" zoom project img  d-flex justify-content-center align-items-end" style="background-image: url(images/ghana2.JPG);background-size: contain;">
-
-    				</div>
-    			</div>
-    			<div class="col-md-4">
-                    
-    				<div class=" zoom project img  d-flex justify-content-center align-items-end" style="background-image: url(images/malmo.JPG);background-size: contain;">
-                        
-
-    				</div>
-    			</div>
-    			<div class="col-md-4">
-    				<div class=" zoom project img  d-flex justify-content-center align-items-end" style="background-image: url(images/ghana3.JPG);background-size: contain;">
-
-    				</div>
-    			</div>
-    			<div class="col-md-4">
-    				<div class=" zoom project img  d-flex justify-content-center align-items-end" style="background-image: url(images/Map2.jpg);background-size: contain;">
-
-    				</div>
-    			</div>
-    			<div class="col-md-4">
-    				<div class=" zoom project img  d-flex justify-content-center align-items-end" style="background-image: url(images/kat1.JPG);background-size: contain;">
-
-    				</div>
-    			</div>
-    			<div class="col-md-4">
-    				<div class=" zoom project img  d-flex justify-content-center align-items-end" style="background-image: url(images/kat2.JPG);background-size: contain;">
-
-    				</div>
-    			</div>
-                    			<div class="col-md-4">
-    				<div class=" zoom project img  d-flex justify-content-center align-items-end" style="background-image: url(images/kat3.JPG);background-size: contain;">
-
-    				</div>
-    			</div>
-                
-                                    			<div class="col-md-4">
-    				<div class=" zoom project img  d-flex justify-content-center align-items-end" style="background-image: url(images/white.jpg);background-size: contain;">
-
-    				</div>
-    			</div>
-                
-                                    			<div class="col-md-4">
-    				<div class=" zoom project img  d-flex justify-content-center align-items-end" style="background-image: url(images/ls.JPG);background-size: contain;">
-
-    				</div>
-    			</div>
-                                                                                                    			<div class="col-md-4">
-    				<div class=" zoom project img  d-flex justify-content-center align-items-end" style="background-image: url(images/x2.JPG);background-size: contain;">
-
-    				</div>
-    			</div>
-                                                    			<div class="col-md-4">
-    				<div class=" zoom project img  d-flex justify-content-center align-items-end" style="background-image: url(images/hb.JPG);background-size: contain;">
-
-    				</div>
-    			</div>
-                
-                                                                                    			<div class="col-md-4">
-    				<div class=" zoom project img  d-flex justify-content-center align-items-end" style="background-image: url(images/hb2.JPG);background-size: contain;">
-
-    				</div>
-    			</div>
-                                                                    			<div class="col-md-4">
-    				<div class=" zoom project img  d-flex justify-content-center align-items-end" style="background-image: url(images/f1.JPG);background-size: contain;">
-
-    				</div>
-    			</div>
-                
-                                                                    			<div class="col-md-4">
-    				<div class=" zoom project img  d-flex justify-content-center align-items-end" style="background-image: url(images/f2.JPG);background-size: contain;">
-
-    				</div>
-    			</div>
-                
-                                                                    			<div class="col-md-4">
-    				<div class=" zoom project img  d-flex justify-content-center align-items-end" style="background-image: url(images/f3.JPG);background-size: contain;">
-
-    				</div>
-    			</div>
-                 			<div class="col-md-4">
-    				<div class=" zoom project img  d-flex justify-content-center align-items-end" style="background-image: url(images/f4.JPG);background-size: contain;">
-
-    				</div>
-    			</div>
-                                                     			<div class="col-md-4">
-    				<div class=" zoom project img  d-flex justify-content-center align-items-end" style="background-image: url(images/3rd.png);background-size: contain;">
-
-    				</div>
-    			</div>
-                			<div class="col-md-4">
-    				<div class=" zoom project img  d-flex justify-content-center align-items-end" style="background-image: url(images/gr.jpg);background-size: contain;">
-
-    				</div>
-    			</div>
-                                			<div class="col-md-4">
-    				<div class=" zoom project img  d-flex justify-content-center align-items-end" style="background-image: url(images/11.jpg);background-size: contain;">
-
-    				</div>
-    			</div>
-    		</div>
-    	</div>
-    </section>
-
- <section class="ftco-section ftco-project" id="agri-section">
-    	<div class="container">
-    		<div class="row no-gutters justify-content-center pb-5">
-          <div class="col-md-12 heading-section text-center ftco-animate">
-          	<span class="subheading">Photos</span>
-            <h2 class="mb-4">Agriculture</h2>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           </div>
-        </div>
-    		<div class="row">
-                                <div class="col-md-4">
-    				<div class=" zoom project img  d-flex justify-content-center align-items-end" style="background-image: url(images/ag1.png);background-size: contain;">
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 
-    				</div>
-    			</div>                <div class="col-md-4">
-    				<div class=" zoom project img  d-flex justify-content-center align-items-end" style="background-image: url(images/ag2.png);background-size: contain;">
-
-    				</div>
-    			</div>
-                <div class="col-md-4">
-    				<div class=" zoom project img  d-flex justify-content-center align-items-end" style="background-image: url(images/ag3.jpg);background-size: contain;">
-
-    				</div>
-    			</div>
-                
-    			<div class="col-md-4">
-    				<div class=" zoom project img  d-flex justify-content-center align-items-end" style="background-image: url(images/ag4.png); background-size: contain;">
-
-    				</div>
-  				</div>
-  				<div class="col-md-4">
-    				<div class=" zoom project img  d-flex justify-content-center align-items-end" style="background-image: url(images/ag5.png);background-size: contain;">
-
-    				</div>
-  				</div>
-
-    			<div class="col-md-4">
-    				<div class=" zoom project img  d-flex justify-content-center align-items-end" style="background-image: url(images/ag5.png);background-size: contain;">
-
-    				</div>
-    			</div>
-    			<div class="col-md-4">
-                    
-    				<div class=" zoom project img  d-flex justify-content-center align-items-end" style="background-image: url(images/ag6.png);background-size: contain;">
-                        
-
-    				</div>
-    			</div>
-    			<div class="col-md-4">
-    				<div class=" zoom project img  d-flex justify-content-center align-items-end" style="background-image: url(images/ag7.png);background-size: contain;">
-
-    				</div>
-    			</div>
-    			<div class="col-md-4">
-    				<div class=" zoom project img  d-flex justify-content-center align-items-end" style="background-image: url(images/ag8.png);background-size: contain;">
-
-    				</div>
-    			</div>
-    			<div class="col-md-4">
-    				<div class=" zoom project img  d-flex justify-content-center align-items-end" style="background-image: url(images/ag9.png);background-size: contain;">
-
-    				</div>
-    			</div>
-    			<div class="col-md-4">
-    				<div class=" zoom project img  d-flex justify-content-center align-items-end" style="background-image: url(images/ag10.png);background-size: contain;">
-
-    				</div>
-    			</div>
-                    			<div class="col-md-4">
-    				<div class=" zoom project img  d-flex justify-content-center align-items-end" style="background-image: url(images/ag11.png);background-size: contain;">
-
-    				</div>
-    			</div>
-                
-                                    			<div class="col-md-4">
-    				<div class=" zoom project img  d-flex justify-content-center align-items-end" style="background-image: url(images/ag12.png);background-size: contain;">
-
-    				</div>
-    			</div>
-                
-                                    			<div class="col-md-4">
-    				<div class=" zoom project img  d-flex justify-content-center align-items-end" style="background-image: url(images/ag13.png);background-size: contain;">
-
-    				</div>
-    			</div>
-                                    			<div class="col-md-4">
-    				<div class=" zoom project img  d-flex justify-content-center align-items-end" style="background-image: url(images/ag14.png);background-size: contain;">
-
-    				</div>
-    			</div>                                    			<div class="col-md-4">
-    				<div class=" zoom project img  d-flex justify-content-center align-items-end" style="background-image: url(images/ag15.png);background-size: contain;">
-
-    				</div>
-    			</div>                                    			<div class="col-md-4">
-    				<div class=" zoom project img  d-flex justify-content-center align-items-end" style="background-image: url(images/ag16.png);background-size: contain;">
-
-    				</div>
-    			</div>                                    			<div class="col-md-4">
-    				<div class=" zoom project img  d-flex justify-content-center align-items-end" style="background-image: url(images/ag17.png);background-size: contain;">
-
-    				</div>
-    			</div>    
-                
-                        <div class="col-md-4">
-    				<div class=" zoom project img  d-flex justify-content-center align-items-end" style="background-image: url(images/ag18.png);background-size: contain;">
-
-    				</div>
-    			</div>                 <div class="col-md-4">
-    				<div class=" zoom project img  d-flex justify-content-center align-items-end" style="background-image: url(images/ag19.png);background-size: contain;">
-
-    				</div>
-    			</div>                 <div class="col-md-4">
-    				<div class=" zoom project img  d-flex justify-content-center align-items-end" style="background-image: url(images/ag20.png);background-size: contain;">
-
-    				</div>
-    			</div>         
-                
-                
-                
-                
-                
-                <div class="col-md-4">
-    				<div class=" zoom project img  d-flex justify-content-center align-items-end" style="background-image: url(images/ag21.png);background-size: contain;">
-
-    				</div>
-    			</div>                                    			<div class="col-md-4">
-    				<div class=" zoom project img  d-flex justify-content-center align-items-end" style="background-image: url(images/ag22.png);background-size: contain;">
-
-    				</div>
-    			</div>                                    			<div class="col-md-4">
-    				<div class=" zoom project img  d-flex justify-content-center align-items-end" style="background-image: url(images/ag23.png);background-size: contain;">
-
-    				</div>
-    			</div>                                    			<div class="col-md-4">
-    				<div class=" zoom project img  d-flex justify-content-center align-items-end" style="background-image: url(images/ag24.png);background-size: contain;">
-
-    				</div>
-    			</div>                                    			<div class="col-md-4">
-    				<div class=" zoom project img  d-flex justify-content-center align-items-end" style="background-image: url(images/ag25.png);background-size: contain;">
-
-    				</div>
-    			</div>                                    			<div class="col-md-4">
-    				<div class=" zoom project img  d-flex justify-content-center align-items-end" style="background-image: url(images/ag26.png);background-size: contain;">
-
-    				</div>
-    			</div>
-    		</div>
-    	</div>
-    </section>
-
-
-
-
-
-
-
-
-
-
-    <section class="ftco-section contact-section ftco-no-pb" id="contact-section">
-      <div class="container">
-      	<div class="row justify-content-center mb-5 pb-3">
-          <div class="col-md-7 heading-section text-center ftco-animate">
-            <h2 class="mb-4">Contact Me</h2>
-            
+    <div class="modal fade" id="legendModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">Map Legend</h4>
           </div>
-        </div>
-
-        <div class="row d-flex contact-info mb-5">
-          <div class="col-md-9 col-lg-6 d-flex ftco-animate">
-          	<div class="align-self-stretch box text-center p-4 bg-light">
-          		<div class="icon d-flex align-items-center justify-content-center">
-          			<span class="fa fa-map-marker"></span>
-          		</div>
-          		<div>
-	          		<h3 class="mb-4">Address</h3>
-		            <p>Sweden</p>
-		          </div>
-	          </div>
+          <div class="modal-body">
+            <p>Map Legend goes here...</p>
           </div>
-
-          <div class="col-md-9 col-lg-6 d-flex ftco-animate">
-          	<div class="align-self-stretch box text-center p-4 bg-light">
-          		<div class="icon d-flex align-items-center justify-content-center">
-          			<span class="fa fa-paper-plane"></span>
-          		</div>
-          		<div>
-	          		<h3 class="mb-4">Email Address</h3>
-		            <p><a href="mailto:info@yoursite.com">aslanis.pau@gmail.com</a></p>
-		          </div>
-	          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 
-        </div>
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">Login</h4>
+          </div>
+          <div class="modal-body">
+            <form id="contact-form">
+              <fieldset>
+                <div class="form-group">
+                  <label for="name">Username:</label>
+                  <input type="text" class="form-control" id="username">
+                </div>
+                <div class="form-group">
+                  <label for="email">Password:</label>
+                  <input type="password" class="form-control" id="password">
+                </div>
+              </fieldset>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary" data-dismiss="modal">Login</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 
+    <div class="modal fade" id="featureModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button class="close" type="button" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title text-primary" id="feature-title"></h4>
+          </div>
+          <div class="modal-body" id="feature-info"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 
-      </div>
-    </section>
-		
-
-    <footer class="ftco-footer ftco-section">
-      <
-        <div class="row">
-          <div class="col-md-12 text-center">
-
-            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+<!--    <div class="modal fade" id="attributionModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button class="close" type="button" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">
+              Developed by <a href='http://bryanmcbride.com'>bryanmcbride.com</a>
+            </h4>
+          </div>
+          <div class="modal-body">
+            <div id="attribution"></div>
           </div>
         </div>
       </div>
-    </footer>
-    
-  
-
-  <!-- loader -->
-  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
-
-
-  <script src="js/jquery.min.js"></script>
-  <script src="js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/jquery.easing.1.3.js"></script>
-  <script src="js/jquery.waypoints.min.js"></script>
-  <script src="js/jquery.stellar.min.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/jquery.magnific-popup.min.js"></script>
-  <script src="js/jquery.animateNumber.min.js"></script>
-  <script src="js/scrollax.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-  <script src="js/google-map.js"></script>
-  
-  <script src="js/main.js"></script>
-    
+    </div>
+-->
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.10.5/typeahead.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.3/handlebars.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.1.1/list.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
+    <script src="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js"></script>
+    <script src="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/L.Control.Locate.min.js"></script>
+    <script src="assets/leaflet-groupedlayercontrol/leaflet.groupedlayercontrol.js"></script>
+    <script src="assets/js/app.js"></script>
   </body>
 </html>
